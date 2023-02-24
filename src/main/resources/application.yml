@@ -6,6 +6,14 @@ app:
          register: /api/v1/registerdrone
          available: /api/v1/availabledrones
          batterylevel: /api/v1/batterylevel/{serialNumber}
+         alldrones: /api/v1/alldrones
+         loaddrone: /api/v1/loaddrone
+         updatestatus: /api/v1/updatestatus
+    medications:
+      base-uri: /medications
+      api:
+        register: /api/v1/registermedication
+        check-loaded-item: /api/v1/loadeditem/{droneSerialNumber}
 spring:
   h2.console.enabled: true
   ql.init.schema-locations: classpath:db/scripts.sql
