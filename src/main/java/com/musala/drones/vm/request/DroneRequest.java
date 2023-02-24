@@ -6,47 +6,27 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
-import javax.persistence.Column;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @Data
 public class DroneRequest {
-	public DroneRequest() {
 
-	}
 
-	public DroneRequest(String serialNumber, Model model, double weightLimit, BigDecimal batteryCapacity,
-			State state) {
-		super();
-		this.serialNumber = serialNumber;
-		this.model = model;
-		this.weightLimit = weightLimit;
-		this.batteryCapacity = batteryCapacity;
-		this.state = state;
-	}
-
-	@NotNull
-	@Length(min=1 ,max = 100)
-	private String serialNumber;
-
-	@Enumerated
-	@Column(name = "MODEL", nullable = false)
-	private Model model;
-
-	@NotNull
-	@DecimalMin(value = "0.0", inclusive = true)
-	@DecimalMax(value = "500.0", inclusive = true)
-	private Double weightLimit;
-
-	@NotNull
-	@Range(min = 0, max = 100)
-	private BigDecimal batteryCapacity;
-
-	@Enumerated
-	private State state;
+    @NotNull(message = "{constraints.drone.serialnumber.notblank}")
+    @Length(min = 1, max = 100, message = "{constraints.drone.serialnumber.length}")
+    private String serialNumber;
+    @NotNull(message="{constraints.drone.weight.notnull}")
+	@DecimalMin(value = "0.0", inclusive = true,message="{constraints.drone.weight.min}")
+	@DecimalMax(value = "500.0", inclusive = true,message="{constraints.drone.weight.max}")
+    private Double weightLimit;
+    @NotNull(message="{constraints.drone.batteryCapacity.notnull}")
+	@Range(min = 0, max = 100,message="{constraints.drone.batteryCapacity.range}")
+    private Double batteryCapacity;
+   @NotNull(message="{constraints.drone.model.notnull}")
+    private Model model;
+    @NotNull(message="{constraints.drone.state.notnull}")
+    private State state;
 
 }
