@@ -1,0 +1,25 @@
+app:
+  config:
+    drones:
+      base-uri: /drones
+      api:
+         register: /api/v1/registerdrone
+         available: /api/v1/availabledrones
+         batterylevel: /api/v1/batterylevel/{serialNumber}
+spring:
+  h2.console.enabled: true
+  ql.init.schema-locations: classpath:db/scripts.sql
+  datasource:
+    url: jdbc:h2:mem:db
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+server:
+  port: 8080
+  error.include-message: always
+springdoc:
+  packagesToScan: com.musala.drones
+  operations-sorter: alpha
