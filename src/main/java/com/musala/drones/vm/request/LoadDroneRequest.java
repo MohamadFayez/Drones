@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 public class LoadDroneRequest {
-	@NotNull(message = "Drone id is required")
+	@NotNull(message = "{constraints.drone.serialnumber.notblank}")
 	private String serialNumber;
 	private List<Medication> items;
 }
