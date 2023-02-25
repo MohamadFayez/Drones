@@ -75,7 +75,7 @@ The following assumptions were made made during development
 
 ```
 # TEST
-# Register drone using POST request with url: localhost:8080/drone/register
+# Register drone using POST request with url: localhost:8080/drones/api/v1/register
 ```
 # Valid request example:
 {
@@ -130,7 +130,7 @@ The following assumptions were made made during development
     ]
 }
 ```
-## Available drones for loading using GET request with url:localhost:8080/drone/available
+## Available drones for loading using GET request with url:localhost:8080/drones/api/v1/availabledrones
 ```
 # Valid response example:
 {
@@ -148,96 +148,8 @@ The following assumptions were made made during development
     "timestamp": "2022-03-31T01:25:23.2682346"
 }
 
-```
-## Loading a drone with medication items using POST request with url: localhost:8080/drone/load
-```
-# Valid request example:
-{
-    "serialNumber": "SN-20157B",
-    "code":"M2",
-	"source":"Cairo",
-    "destination": "Damanhour"
-}
-# Valid response example:
-{
-    "status": "Success",
-    "data": {
-        "serialNumber": "SN-20157B",
-        "model": "LIGHTWEIGHT",
-        "weightLimit": 400.0,
-        "batteryCapacity": 88,
-        "state": "LOADING"
-    },
-    "message": "Drone loaded with medication items successfully",
-    "timestamp": "2022-03-31T01:42:55.9005016"
-}
-# Invalid response example:
-{
-    "status": "Fail",
-    "timestamp": "31-03-2022 01:43:49",
-    "message": "Medication does not exist",
-    "subErrors": []
-}
 
 ```
-## loaded medication items for a given drone using GET request with url:localhost:8080/drone/items/{serialNumber}
-```
-# Valid response example:
-{
-    "status": "Success",
-    "data": {
-        "code": "MH112",
-        "name": "CAIRx",
-        "weight": 100.0,
-        "image": "sade23Rd"
-    },
-    "message": "Medication item loaded successfully",
-    "timestamp": "2022-03-31T01:47:07.6475705"
-}
-# Invalid response example:
-{
-    "status": "Fail",
-    "timestamp": "31-03-2022 01:47:50",
-    "message": "No Medication found for drone with serial number: {0}",
-    "subErrors": []
-}
-
-```
-## check drone battery level using POST request with url: localhost:8080/drone/battery/{serialNumber}
-```
-# Valid response example:
-{
-    "status": "Success",
-    "data": {
-        "serialNumber": "SN-20157B",
-        "model": "LIGHTWEIGHT",
-        "weightLimit": 400.0,
-        "batteryCapacity": 88,
-        "state": "LOADING"
-    },
-    "message": "Battery level checked successfully",
-    "timestamp": "2022-03-31T01:50:36.0347054"
-}
-
-```
-## deliver of medication item using POST request with url: localhost:8080/drone/deliver/{serialNumber}
-```
-# Valid response example:
-{
-    "status": "Success",
-    "data": {
-        "serialNumber": "SN-20157B",
-        "model": "LIGHTWEIGHT",
-        "weightLimit": 400.0,
-        "batteryCapacity": 88,
-        "state": "LOADING"
-    },
-    "message": "Drone delivered successfully",
-    "timestamp": "2022-03-31T01:53:01.3008391"
-}
-
-```
-
 ```
 I hope that you will like this modest work so that I have the honor of working with you and therefore I will do my best to achieve progress for your company.
 Certainly, the method of work varies from place to place and from project to project, so the method of my work with you will be according to your directions.
