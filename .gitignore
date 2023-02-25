@@ -2,7 +2,6 @@
 logs
 **/logs
 .metadata
-README.md
 /target/
 */target/**
 *.class
