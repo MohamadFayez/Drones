@@ -1,7 +1,9 @@
 package com.musala.drones.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -18,6 +20,8 @@ import java.util.Date;
 @Table(name = "AUDIT")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Audit implements Serializable {
 
