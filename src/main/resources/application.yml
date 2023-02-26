@@ -24,9 +24,15 @@ spring:
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
     hibernate.ddl-auto: update
+    defer-datasource-initialization: true
+    repositories:
+      bootstrap-mode: default
+
+
 server:
   port: 8080
   error.include-message: always
 springdoc:
+  show-actuator: true
   packagesToScan: com.musala.drones
   operations-sorter: alpha
